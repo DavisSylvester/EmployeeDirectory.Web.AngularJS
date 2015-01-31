@@ -1,0 +1,87 @@
+/*
+*/
+/* 
+    Created on : Jan 30, 2015, Jan 30, 2015 4:32:14 PM
+    Author     : davis.sylvester
+*/
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.header {
+  width: 100vw;
+  height: 5vh;
+  overflow: hidden;
+}
+.header > div {
+  height: 100%;
+  padding: .5 1%;
+}
+.header .companyName {
+  width: 100vw;
+  font-size: 2vw;
+  padding-left: 30vh;
+  background: #FFF;
+  font-family: 'Encode-Med';
+}
+Nav.nav {
+  background: #234c65;
+  height: 4vh;
+  width: 100vw;
+  font-family: 'Oswald', sans-serif;
+}
+Nav.nav .navagation {
+  color: #FFF;
+}
+.navagation ul {
+  padding: 0;
+  margin: 0;
+  line-height: 4vh;
+}
+.navagation ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  float: left;
+  position: relative;
+}
+.navagation ul li a,
+.navagation ul li a:active {
+  text-decoration: none;
+  text-align: center;
+  height: 4vh;
+  width: 150px;
+  display: block;
+  color: #FFF;
+}
+.navagation ul li ul {
+  width: 20vw;
+  visibility: hidden;
+}
+.navagation ul li ul li {
+  display: block;
+  width: 100%;
+  background: #7ec5ea;
+  border: 3px solid #000;
+  border-right: 3px solid #000;
+  border-bottom: 3px solid #000;
+}
+.navagation ul li ul li a {
+  color: #000;
+}
+.navagation ul li:hover ul {
+  visibility: visible;
+}
+.secondaryColor {
+  color: #3ca7e0;
+}
+.noMargin {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+@font-face {
+  font-family: 'Encode-Med';
+  src: url("../fonts/EncodeSans-Medium.ttf");
+}
+/*# sourceMappingURL=EmployeeDirectory.css.map */
