@@ -10,7 +10,7 @@ body {
 }
 .header {
   width: 100vw;
-  height: 5vh;
+  height: 8vh;
   overflow: hidden;
 }
 .header > div {
@@ -69,6 +69,9 @@ Nav.nav .navagation {
 .navagation ul li ul li a {
   color: #000;
 }
+.navagation ul li ul li:hover a {
+  color: #FFF;
+}
 .navagation ul li:hover ul {
   visibility: visible;
 }
@@ -80,8 +83,114 @@ Nav.nav .navagation {
   padding: 0;
   display: inline;
 }
+.mainContentGeneral {
+  margin: 1%;
+  display: inline-block;
+  vertical-align: top;
+}
+.mainContent > * {
+  width: 100vw;
+  margin: 1%;
+  display: inline-block;
+  vertical-align: top;
+}
+.mainContent div.contentBody {
+  width: 77%;
+}
+.mainContent div.contentBody > *,
+.mainContent div.contentSecondary > * {
+  margin: 1%;
+}
+.mainContent div.contentBody h1 {
+  font-family: 'LobsterTwo-Regular';
+  font-size: 4vh;
+  color: #3ca7e0;
+}
+.mainContent div.contentSecondary {
+  width: 18%;
+  margin: 1%;
+  display: inline-block;
+  vertical-align: top;
+}
+.mainContent > div:last-child {
+  margin-left: 0px;
+}
+.formColumnsGeneric {
+  display: inline-block;
+  margin-right: 2%;
+  height: 100%;
+}
+.row {
+  /*    width: 100%;
+    vertical-align: top;
+    height: 3vh;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1%;*/
+}
+form.formGeneral .row .formLabelsColumn {
+  display: inline-block;
+  margin-right: 2%;
+  height: 100%;
+  width: 20%;
+  text-align: right;
+  font-family: 'Encode-Med';
+  font-size: 2vh;
+  vertical-align: top;
+  /*    height: 3.3vh;*/
+}
+.formGeneral .row .formValueColumn {
+  display: inline-block;
+  margin-right: 2%;
+  width: 70%;
+  text-align: left;
+  height: 100%;
+}
+.formGeneral .row .errorMsg {
+  line-height: 2vh;
+  font-family: 'Encode-Med';
+  font-size: 1.5vh;
+  color: red;
+  text-align: left;
+  padding-left: 30%;
+  margin: .5%;
+}
+input,
+select {
+  padding: 0px;
+  margin: 0px;
+  font-size: 2vh;
+  height: 100%;
+  border: 1px solid #3ca7e0;
+  box-shadow: 5px #3ca7e0;
+  padding-left: 2%;
+}
+textarea {
+  width: 100%;
+  height: 7vh;
+  border: 1px solid #3ca7e0;
+  box-shadow: 5px #3ca7e0;
+}
+input::input-placeholder {
+  color: purple;
+}
+.CommandButton {
+  background: #3ca7e0;
+}
 @font-face {
   font-family: 'Encode-Med';
   src: url("../fonts/EncodeSans-Medium.ttf");
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url("../fonts/Pacifico.ttf");
+}
+@font-face {
+  font-family: 'Alex Brush';
+  src: url("../fonts/AlexBrush-Regular.ttf");
+}
+@font-face {
+  font-family: 'LobsterTwo-Regular';
+  src: url("../fonts/LobsterTwo-Regular.otf");
 }
 /*# sourceMappingURL=EmployeeDirectory.css.map */

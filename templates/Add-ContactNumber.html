@@ -1,0 +1,44 @@
+<div>
+    <h1>Add Contact Number</h1>                     
+</div>
+
+<form class="formGeneral">
+    <div class="row">       
+        <div class="formLabelsColumn">Description</div>
+        <div class="formValueColumn">
+            <Select>
+                <option value="1001">Home</option>
+                <option value="1002">Mobile</option>
+                <option value="1003">Fax</option>
+                <option value="1004">Pager</option>
+                <option value="1004">Mobile 1</option>    
+                    
+            </Select>
+        </div>
+        <div class="errorMsg"></div>
+    </div>
+
+    <div class="row">       
+        <div class="formLabelsColumn">Area Code</div>
+        <div class="formValueColumn">
+            <input type="text" maxlength="3" placeholder="555" required>
+        </div>
+        <div class="errorMsg"></div>
+    </div>
+        
+    <div class="row">       
+        <div class="formLabelsColumn">Number</div>
+        <div class="formValueColumn">
+            <input type="text" maxlength="7" placeholder="555-5555" required>
+        </div>
+        <div class="errorMsg"></div>
+    </div>
+
+    <div class="row">       
+        <div class="formLabelsColumn"></div>
+        <div class="formValueColumn">
+            <button class="btn CommandButton">Save</button>
+        </div>
+
+    </div>
+</form>
