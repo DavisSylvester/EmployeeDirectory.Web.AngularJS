@@ -9,6 +9,10 @@ var app = angular.module('EmployeeDirectory', ["ngRoute"]);
 app.value("Contact", Contact);
 app.value("Employee", Employee);
 app.value("Person", Person);
+app.value("EmployeePerson", EmployeePerson);
+app.value("SubCategory", SubCategory);
+app.value("Category", Category);
+app.value("EmployeeListModel", EmployeeListModel);
 
 app.config(function ($routeProvider) {
     $routeProvider
