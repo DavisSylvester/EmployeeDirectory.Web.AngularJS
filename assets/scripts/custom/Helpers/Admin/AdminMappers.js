@@ -22,3 +22,16 @@ function ToSubCategories(data) {
     }
     return result;
 }
+function ToCategories(data) {
+//    var d = JSON.stringify(data, null, 4);
+//    console.log("SubCategories: " + d);
+    var result = [];
+    for (var i = 0; i < data.length; i++) {
+        var temp = new Category(
+                data[i].ID,                               
+                data[i].Name
+                );       
+        result.push(temp);
+    }
+    return result;
+}

@@ -6,33 +6,16 @@
 
 "use strict";
 
-app.factory('SubCategoryService', function ($http) {
+app.factory('CategoryService', function ($http) {
     var BASE_URL = 'http://localhost:7702/api';
 
     var factory = {};
     
-    factory.GetAllSubCategories = function (returnData) {
-        $http.get(FullURI('/Admin/GetSubCategories')).success(returnData);
+    factory.GetAllCategories = function (returnData) {
+        $http.get(FullURI('/Admin/Categories')).success(returnData);
     };
-
-    factory.GetJobTitles = function (returnData) {
-        $http.get(FullURI(GetWebServicePath('Name', 'JobTitles'))).success(returnData);
-    };
-
-    factory.GetOfficeLocations = function (returnData) {
-        $http.get(FullURI(GetWebServicePath('Name', 'OfficeLocation'))).success(returnData);
-    };
-
-    factory.GetNameSuffixes = function (returnData) {
-        $http.get(FullURI(GetWebServicePath('Name', 'NameSuffix'))).success(returnData);
-    };
-
-    factory.GetCommunicationTypes = function (returnData) {
-        $http.get(FullURI(GetWebServicePath('Name', 'CommunicationTypes'))).success(returnData);
-    };
-
-    factory.SaveSubCategory = function (data, successfulPostCB, failedPostCB) {
-        var ACTION_URL = '/Admin/SaveSubCategory';
+    factory.SaveCategory = function (data, successfulPostCB, failedPostCB) {
+        var ACTION_URL = '/Admin/SaveCategory';
         post(FullURI(ACTION_URL), data, successfulPostCB, failedPostCB);       
     };
     function FullURI(actionUrl) {

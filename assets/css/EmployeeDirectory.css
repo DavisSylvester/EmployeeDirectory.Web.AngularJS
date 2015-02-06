@@ -2,6 +2,7 @@
 */
 /* 
     Created on : Jan 30, 2015, Jan 30, 2015 4:32:14 PM
+    Modified On: Feb 5, 2015
     Author     : davis.sylvester
 */
 body {
@@ -177,6 +178,42 @@ input::input-placeholder {
 .CommandButton {
   background: #3ca7e0;
 }
+.pullRight {
+  text-align: right;
+}
+.formLabel {
+  font-family: 'Oswald';
+  font-size: 2.2vh;
+}
+.formValueColumn {
+  font-family: 'Oswald';
+  font-size: 2.2vh;
+  font-family: 'Oswald Bold';
+  color: #234c65;
+}
+.formLabelsColumn {
+  /*.formColumnsGeneric;*/
+  /*    width: 20%;    */
+  text-align: right;
+  font-family: 'Encode-Med';
+  font-size: 2vh;
+  vertical-align: top;
+  /*    height: 3.3vh;*/
+}
+.panel-body > .row {
+  border-bottom: 1px dotted #234c65;
+}
+.panel-body > .row:last-child {
+  border-bottom: 0;
+}
+.EditableField {
+  visibility: visible;
+  display: block;
+}
+.nonEditField {
+  visibility: hidden;
+  display: none;
+}
 @font-face {
   font-family: 'Encode-Med';
   src: url("../fonts/EncodeSans-Medium.ttf");
@@ -192,5 +229,13 @@ input::input-placeholder {
 @font-face {
   font-family: 'LobsterTwo-Regular';
   src: url("../fonts/LobsterTwo-Regular.otf");
+}
+@font-face {
+  font-family: 'Oswald';
+  src: url("../fonts/Oswald-Regular.ttf");
+}
+@font-face {
+  font-family: 'Oswald Bold';
+  src: url("../fonts/Oswald-Bold.ttf");
 }
 /*# sourceMappingURL=EmployeeDirectory.css.map */

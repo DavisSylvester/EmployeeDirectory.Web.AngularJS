@@ -14,15 +14,25 @@ app.value("SubCategory", SubCategory);
 app.value("Category", Category);
 app.value("EmployeeListModel", EmployeeListModel);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $locationProvider, $httpProvider) {
+    
     $routeProvider
             .when("/", {
-                templateUrl: "Views/Products/ProductList.html",
-                controller: "ProductsController"
-            })
-            .when("/Cart", {
-                templateUrl: "Views/Cart/cart.html",
-                controller: "CartController"
+                templateUrl: "/",
+                controller: "EmployeeController"
             });
-
+            
+    $routeProvider.when("/Employee/Detail/:id", {
+                templateUrl: "EmployeeDetail.html",
+                controller: "EmployeeController"
+            });
+    $routeProvider.otherwise({redirectTo: '/'});
+    $locationProvider.html5Mode(true);
+    
+//    $httpProvider.defaults.headers.post['Accept'] = 'application/json, text/javascript';
+//    $httpProvider.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
+//    $httpProvider.defaults.headers.post['Access-Control-Max-Age'] = '1728000';
+//    $httpProvider.defaults.headers.common['Access-Control-Max-Age'] = '1728000';
+//    $httpProvider.defaults.headers.common['Accept'] = 'application/json, text/javascript';
+//    $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
 });

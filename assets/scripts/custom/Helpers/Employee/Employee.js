@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 
-var Employee = function(id, jobTitleID, officeLocationID, personID, jobTitleName, officeLocationName){
+var Employee = function(id, jobTitleID, officeLocationID, personID, jobTitleName, officeLocationName, photoSrc){
     this.ID = id;
     this.JobTitleID = jobTitleID;
     this.OfficeLocationID = officeLocationID;
     this.PersonID = personID; 
     this.JobTitleName = jobTitleName;
     this.OfficeLocationName = officeLocationName;
+    this.PhotoSrc = photoSrc;
 };
 
 

@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 
-var Person = function(id, firstName, middleName, lastName, email, suffix, isActive, isArchived){
+var Person = function(id, firstName, middleName, lastName, email, suffix, isActive, isArchived,
+            createdOn, createdBy, lastModifiedOn, lastModifiedBy){
     this.ID = id;
     this.FirstName = firstName;
     this.MiddleName = middleName;
@@ -13,4 +14,8 @@ var Person = function(id, firstName, middleName, lastName, email, suffix, isActi
     this.Suffix = suffix;
     this.isActive = isActive;
     this.isArchived = isArchived;
+    this.CreatedOn = createdOn;
+    this.CreatedBy = createdBy;
+    this.LastModifiedOn = lastModifiedOn;
+    this.LastModifiedBy = lastModifiedBy;
 };

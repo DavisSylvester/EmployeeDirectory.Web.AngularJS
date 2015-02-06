@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-app.controller('EmployeeController', function ($scope, $http, SubCategoryService, EmployeeService) {
+app.controller('EmployeeController', function ($scope, $http, $routeParams, SubCategoryService, EmployeeService) {
    
     PopulateAllData();
     
@@ -13,7 +13,7 @@ app.controller('EmployeeController', function ($scope, $http, SubCategoryService
     $scope.TotalEmployees = 0;
     $scope.TotalSubCategories = $scope.JobTitleList.length;
     $scope.TotalJobTitles = $scope.JobTitleList.length;
-
+    
 
     function PopulateAllData(){
         PopulateJobTitles();

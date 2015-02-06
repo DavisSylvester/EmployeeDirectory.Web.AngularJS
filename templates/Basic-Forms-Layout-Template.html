@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<!DOCTYPE html>
+<html>    
     <head>
-        <title>TODO supply a title</title>
+        <title>Employee Details</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <!--<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>-->
         <link href="assets/css/reset.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/SlyWebFramework.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/EmployeeDirectory.css" rel="stylesheet" type="text/css"/>        
@@ -21,6 +17,7 @@ and open the template in the editor.
         <script src="assets/scripts/custom/Helpers/Employee/Contact.js" type="text/javascript"></script>        
         <script src="assets/scripts/custom/Helpers/Employee/Employee.js" type="text/javascript"></script>
         <script src="assets/scripts/custom/Helpers/Employee/EmployeePerson.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Models/EmployeeEditModel.js" type="text/javascript"></script>
         <script src="assets/scripts/custom/Helpers/Admin/Category.js" type="text/javascript"></script>
         <script src="assets/scripts/custom/Helpers/Admin/SubCategory.js" type="text/javascript"></script>
         <script src="assets/scripts/custom/Models/EmployeeListModel.js" type="text/javascript"></script>
@@ -28,25 +25,25 @@ and open the template in the editor.
         <script src="assets/scripts/custom/Helpers/Admin/AdminMappers.js" type="text/javascript"></script>
         <script src="assets/scripts/custom/Modules/EmployeeDirectoryApp.js" type="text/javascript"></script>
         <script src="assets/scripts/custom/Controllers/Employee/EmployeeController.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Controllers/Employee/EmployeeEditController.js" type="text/javascript"></script>
         <script src="assets/scripts/custom/Controllers/Admin/Admin.js" type="text/javascript"></script>  
         <script src="assets/scripts/custom/Directives/employeeSummary.js" type="text/javascript"></script>
         <script src="assets/scripts/custom/Services/SubCategoryService.js" type="text/javascript"></script>        
         <script src="assets/scripts/custom/Services/EmployeeService.js" type="text/javascript"></script>
     </head>
-    <body ng-app="EmployeeDirectory">
-       
-        <div class="moduleWrapper" ng-controller="EmployeeController">
-            <h1>Employee List</h1>
-            
-             List 10 Employee 
-            <hr />
-           <div employee-summary  
-            model='EmployeeList'> </div>
-           <hr />
-           <span style='margin-left: 1%;color: #000;font-family: "Encode-Med";font-weight: bold;'>Total Employees:  {{TotalEmployees}}</span>
-            
+    <body ng-app="EmployeeDirectory">        
+        <div class="moduleWrapper" ng-controller="EmployeeEditController">            
+            <div class='col-14'>    
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h1>Davis Sylvester{{Emp.FirstName}}</h1>
+                    </div>
+
+                    <div class="panel-body-General">
+
+                    </div>
+                </div>                    
+            </div>
         </div>
-        
-       
     </body>
 </html>

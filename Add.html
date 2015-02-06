@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>    
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>-->
+        <link href="assets/css/reset.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/SlyWebFramework.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/EmployeeDirectory.css" rel="stylesheet" type="text/css"/>        
+        <script src="assets/scripts/Frameworks/jquery-2.1.3.min.js" type="text/javascript"></script>        
+        <script src="assets/scripts/Frameworks/angular.js" type="text/javascript"></script>
+        <script src="assets/scripts/Frameworks/angular-route.js" type="text/javascript"></script>
+        <script src="assets/scripts/Frameworks/angular-animate.js" type="text/javascript"></script>              
+        <script src="assets/scripts/custom/Helpers/Employee/Person.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Employee/Contact.js" type="text/javascript"></script>        
+        <script src="assets/scripts/custom/Helpers/Employee/Employee.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Employee/EmployeePerson.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Models/EmployeeEditModel.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Admin/Category.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Admin/SubCategory.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Models/EmployeeListModel.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Employee/EmployeeMappers.js" type="text/javascript"></script>        
+        <script src="assets/scripts/custom/Helpers/Admin/AdminMappers.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Modules/EmployeeDirectoryApp.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Controllers/Employee/EmployeeController.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Controllers/Employee/EmployeeEditController.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Controllers/Admin/Admin.js" type="text/javascript"></script>  
+        <script src="assets/scripts/custom/Directives/employeeSummary.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Services/SubCategoryService.js" type="text/javascript"></script>        
+        <script src="assets/scripts/custom/Services/EmployeeService.js" type="text/javascript"></script>
+    </head>
+    <body ng-app="EmployeeDirectory">        
+            <div class="moduleWrapper" ng-controller="EmployeeEditController">
+                <form ng-submit="SavePerson()">
+                <h1>Personal Profile for: <span> Davis Sylvester</span></h1>
+
+                <div class='row'>
+                    <button class='btn'> Edit </button>
+                    <button class='btn'> Delete </button>
+                    <button class='btn'> Add </button>
+                </div>
+
+                <div class='row' style='vertical-align: top;'>
+                    <div class='col-8'>
+
+                        <div class='panel' style='font-family: "Oswald";'>
+                            <div class='panel-heading' style='position: relative;'><span> Personal Data</span>
+                                <img ng-click='showEditableItems' src="assets/images/pencil3.png" alt="" 
+                                     style='height: 4vh;float:right;' class='editPencil'/>
+                                <div class='clear'></div>
+                            </div>
+                            <div class='panel-body'>
+                                <div class='row'>                            
+                                    <div class='col-4' style='text-align: right;'>
+                                        <span class="formLabel">First Name</span>                                                   
+                                    </div>
+                                    <div class='col-12' style='text-align: center;'>
+                                        <span class="nonEditField formValueColumn">Davis</span>  
+                                        <input class='EditableField' type='text' ng-model='Emp.FirstName' name='firstName' required style='font-size: 2.4vh;'/>                                    
+                                        {{Emp.FirstName}}
+                                    </div>
+                                    <div class='row ErrorMessage EditableField' style='padding-left: 30%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-4' style='text-align: right;vertical-align: TOP;'>
+                                        <span class="formLabel">Middle Name</span>
+                                    </div>
+                                    <div class='col-12' style='text-align: center;'>
+                                        <span class="nonEditField formValueColumn">Davis</span>  
+                                        <input class='EditableField' type='text' ng-model='Emp.MiddleName' name='middleName'/>{{Emp.MiddleName}}
+                                    </div>
+                                    <div class='row ErrorMessage EditableField' style='padding-left: 30%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-4' style='text-align: right;'>
+                                        <span class="formLabel">Last Name</span>
+                                    </div>
+                                    <div class='col-12' style='text-align: center;'>
+                                        <span class="nonEditField formValueColumn">Davis</span>  
+                                        <input class='EditableField' type='text'  ng-model='Emp.LastName' name='lastName' required />{{Emp.LastName}}
+                                    </div>
+                                    <div class='row ErrorMessage EditableField' style='padding-left: 30%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-4' style='text-align: right;'>
+                                        <span class="formLabel">E-Mail</span>
+                                    </div>
+                                    <div class='col-12' style='text-align: center;'>
+                                        <span class="nonEditField formValueColumn">Davis@sylvesterLLC.com</span>  
+                                        <input class='EditableField' type='email'  ng-model='Emp.Email' name='Email' required />{{Emp.Email}}
+                                    </div>
+                                    <div class='row ErrorMessage EditableField' style='padding-left: 30%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-4' style='text-align: right;'>
+                                        <span class="formLabel">Suffix</span>
+                                    </div>
+                                    <div class='col-12' style='text-align: center;'>
+                                        <span class="nonEditField formValueColumn">III</span>
+                                        <select class='EditableField' ng-model='Emp.Suffix' name='suffix' style='width: 100%;'>
+                                            <option value="">Please select</option>
+                                            <option 
+                                                ng-repeat="suffix in ListOfSuffixes"
+                                                value='{{suffix.ID}} '>{{suffix.Name}}</option>
+                                        </select>
+
+                                    </div>
+                                    <div class='row ErrorMessage EditableField' style='padding-left: 30%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-6' style='text-align: right;'>
+                                        <span class="formLabel">Active</span>
+                                    </div>
+                                    <div class='col-10' style='text-align: left;'>
+                                        <input type='checkbox' name='isActive' ng-model='Emp.isActive' value="True" style='color: #ff9;background: green; width: 100%;border: 1px solid green;height: 20px;'/>
+                                    </div>
+                                    <div class='row ErrorMessage' style='padding-left: 40%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-6' style='text-align: right;'>
+                                        <span class="formLabel">Archived</span>
+                                    </div>
+                                    <div class='col-10' style='text-align: left;'>
+                                        <input type='checkbox' name='isArchived' ng-model='Emp.isArchived' value="True" style='color: #ff9;background: green; width: 100%;border: 1px solid green;height: 20px;'/>
+                                    </div>
+                                    <div class='row ErrorMessage' style='padding-left: 40%;color: red;'></div>
+                                </div>
+
+                                <div class='row EditableField' style='text-align: center;'>
+                                    
+
+                                    <!--<button class='btn CommandButton' ng-click='SavePerson()'> Save </button>-->
+                                    <button class='btn CommandButton' ng-click='ClearPersonForm()'> Cancel </button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class='col-6'>
+                        <div class='panel'>
+                            <div class='panel-heading'>
+                                <span>Employee Information</span>
+                                <img ng-click='showEditableItems'  src="assets/images/pencil3.png" alt="edit Pencil" 
+                                     style='height: 4vh;float: right; ' class='editPencil'/>
+                                <div class='clear' ></div>
+                            </div>
+                            <div class='panel-body'>
+                                <div class='row'>                            
+                                    <div class='col-6' style='text-align: right;'>
+                                        <span class="formLabel">Job Title</span>
+                                    </div>
+                                    <div class='col-10' style='text-align: center;'>
+                                        <span class="nonEditField formValueColumn">Davis</span>                                      
+                                        <select  class='EditableField' ng-model='Emp.JobTitleID' name='jobID' style='width: 100%;' required>
+                                            <option value="">Please select</option>
+                                            <option 
+                                                ng-repeat="jobs in ListOfJobTitles"
+                                                value='{{jobs.ID}}'>{{jobs.Name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class='row ErrorMessage EditableField' style='padding-left: 30%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-6' style='text-align: right;'>
+                                        <span class="formLabel">Office Location</span>
+                                    </div>
+                                    <div class='col-10' style='text-align: center;'>
+                                        <span class="nonEditField formValueColumn">Davis</span>  
+                                        <select  class='EditableField' ng-model='Emp.OfficeLocationID' name='jobID' style='width: 100%;' required>
+                                            <option value="">Please select</option>
+                                            <option 
+                                                ng-repeat="loc in ListOfOfficeLocations"
+                                                value='{{loc.ID}}'>{{loc.Name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class='row ErrorMessage EditableField' style='padding-left: 30%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-6' style='text-align: right;'>
+                                        <span class="formLabel">Photo</span>
+                                    </div>
+                                    <div class='col-10' style='text-align: center;'>
+                                        <span class="nonEditField formValueColumn">Davis</span>  
+                                        <input class='EditableField' type='file' ng-model='Emp.PhotoSrc' name='photoSrc'  />
+                                    </div>
+                                    <div class='row ErrorMessage EditableField' style='padding-left: 30%;color: red;'></div>
+                                </div>                            
+
+                                <div class='row EditableField' style='text-align: center;'>
+                                    <input type='submit' value='Save' class='btn CommandButton' />
+                                    <button class='btn CommandButton'> Cancel </button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='panel' style='margin-top: 2%;'>
+                            <div class='panel-heading'><span>Record History</span></div>
+                            <div class='panel-body'>
+                                <div class='row'>                            
+                                    <div class='col-6' style='text-align: right;'>
+                                        <span class="formLabel">Created By</span>
+                                    </div>
+                                    <div class='col-10' style='text-align: center;'>
+                                        <span class="formValueColumn">{{Emp.CreatedBy}}</span>
+                                    </div>
+                                    <div class='row ErrorMessage' style='padding-left: 40%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-6' style='text-align: right;'>
+                                        <span class="formLabel">Created On</span>
+                                    </div>
+                                    <div class='col-10' style='text-align: center;'>
+                                        <span class="formValueColumn">{{Emp.CreatedOn}}</span>
+                                    </div>
+                                    <div class='row ErrorMessage' style='padding-left: 40%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-6' style='text-align: right;'>
+                                        <span class="formLabel">Changed By</span>
+                                    </div>
+                                    <div class='col-10' style='text-align: center;'>
+                                        <span class="formValueColumn">{{Emp.LastModifiedBy}}</span>
+                                    </div>
+                                    <div class='row ErrorMessage' style='padding-left: 40%;color: red;'></div>
+                                </div>
+
+                                <div class='row'>                            
+                                    <div class='col-6' style='text-align: right;'>
+                                        <span class="formLabel">Changed On</span>
+                                    </div>
+                                    <div class='col-10' style='text-align: center;'>
+                                        <span class="formValueColumn">{{Emp.LastModifiedOn}}</span>
+                                    </div>
+                                    <div class='row ErrorMessage' style='padding-left: 40%;color: red;'></div>
+                                </div>
+                                
+                                <div class='row'>                            
+                                    <div class='col-6' style='text-align: right;'>
+                                        <span class="formLabel">Result of Save</span>
+                                    </div>
+                                    <div class='col-10' style='text-align: center;'>
+                                        <span class="formValueColumn">{{EmployeeSaveResult}}</span>
+                                    </div>
+                                    <div class='row ErrorMessage' style='padding-left: 40%;color: red;'></div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </form>
+            </div>
+        
+    </body>
+</html>
