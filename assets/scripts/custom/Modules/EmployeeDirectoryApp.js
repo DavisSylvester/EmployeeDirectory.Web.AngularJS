@@ -53,6 +53,11 @@ app.config(function ($routeProvider, $locationProvider, $httpProvider) {
                 controller: "EmployeeNewController"
             });
             
+    $routeProvider.when("/Employee/Search/", {
+                templateUrl: "/Views/Employee/Search.html",
+                controller: "EmployeeSearchController"
+            });
+            
     $routeProvider.otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
     

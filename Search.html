@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>    
+    <head>
+        <title>Employee Details</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>-->
+        <link href="assets/css/reset.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/SlyWebFramework.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/EmployeeDirectory.css" rel="stylesheet" type="text/css"/>        
+        <script src="assets/scripts/Frameworks/jquery-2.1.3.min.js" type="text/javascript"></script>        
+        <script src="assets/scripts/Frameworks/angular.js" type="text/javascript"></script>
+        <script src="assets/scripts/Frameworks/angular-route.js" type="text/javascript"></script>
+        <script src="assets/scripts/Frameworks/angular-animate.js" type="text/javascript"></script>              
+        <script src="assets/scripts/custom/test.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Employee/Person.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Employee/Contact.js" type="text/javascript"></script>        
+        <script src="assets/scripts/custom/Helpers/Employee/Employee.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Employee/EmployeePerson.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Admin/Category.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Admin/SubCategory.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Employee/QuerySearchParams.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Models/EmployeeListModel.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Helpers/Employee/EmployeeMappers.js" type="text/javascript"></script>        
+        <script src="assets/scripts/custom/Helpers/Admin/AdminMappers.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Modules/EmployeeDirectoryApp.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Controllers/Employee/EmployeeController.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Controllers/Employee/EmployeeEditController.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Controllers/Employee/EmployeeAddController.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Controllers/Employee/EmployeeNewController.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Controllers/Employee/EmployeeSearchController.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Controllers/Admin/Admin.js" type="text/javascript"></script>  
+        <script src="assets/scripts/custom/Directives/employeeSummary.js" type="text/javascript"></script>
+        <script src="assets/scripts/custom/Services/SubCategoryService.js" type="text/javascript"></script>        
+        <script src="assets/scripts/custom/Services/EmployeeService.js" type="text/javascript"></script>
+    </head>
+    <body ng-app="EmployeeDirectory">        
+        <div class="moduleWrapper" ng-controller="EmployeeSearchController">            
+            <div class='col-14'>    
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h1>Search</h1>
+                    </div>
+
+                    <div class="panel-body">
+                        <form ng-submit="QueryEmployees()">
+                        <div class="row">
+                            <div class="col-2 pullRight" >First Name</div>  
+                            <div class="col-6"><input type="text" ng-model='FirstName' name='fname' /></div>  
+                            <div class="col-2 pullRight" >Last Name</div>  
+                            <div class="col-6"><input type="text" ng-model='LastName' name='lname' /></div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-2 pullRight" >Office Location</div>  
+                            <div class="col-6">
+                                <select ng-model='OfficeID' name='office'>
+                                    <option value=''>ALL</option>
+                                    <option 
+                                        ng-repeat="loc in ListOfOfficeLocations"                                                   
+                                        value='{{loc.ID}}'
+                                        >{{loc.Name}}</option>   
+                                </select>
+                            </div>  
+                            <div class="col-2 pullRight" >Job Title</div>  
+                            <div class="col-6">
+                                <select ng-model='JobID' name='office'>
+                                    <option value=''>ALL</option>
+                                    <option 
+                                        ng-repeat="jobs in ListOfJobTitles"
+                                        value='{{jobs.ID}}'              
+                                        >{{jobs.Name}}</option>
+                                </select>
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-2 pullRight" >Active</div>  
+                            <div class="col-6">
+                                <input type="checkbox" ng-model='isActive' name='isActive' value='true' 
+                                       ng-checked='isActive === true' style='color: #ff9;background: green; width: 100%;border: 1px solid green;height: 20px;'/>
+                            </div>  
+                            <div class="col-2 pullRight" >Archived</div>  
+                            <div class="col-6">
+                                <input type="checkbox" ng-model='isArchived' name='isArchived' value='true' style='color: #ff9;background: green; width: 100%;border: 1px solid green;height: 20px;'
+                                       ng-checked='isArchived === true'
+                                          />
+                            </div>  
+                        </div>  
+                        <div class="row">
+                            <input type='submit' class='btn CommandButton' value='Search' />
+                        </div>
+                        </form>
+                    </div>
+                </div>                    
+            </div>
+                
+            <div class='row' ng-show='ShowGrid'>
+                <div employee-summary  
+         model='ActiveResult'> </div>
+            </div>
+                
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="moduleWrapper">            
+            <div class='col-14'>    
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h1>Search</h1>
+                    </div>
+
+                    <div class="panel-body">
+                        <form ng-submit="QueryEmployees()">
+                        <div class="row">
+                            <div class="col-2 pullRight" >First Name</div>  
+                            <div class="col-6"><input type="text" ng-model='FirstName' name='fname' /></div>  
+                            <div class="col-2 pullRight" >Last Name</div>  
+                            <div class="col-6"><input type="text" ng-model='LastName' name='lname' /></div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-2 pullRight" >Office Location</div>  
+                            <div class="col-6">
+                                <select ng-model='OfficeID' name='office'>
+                                    <option value=''>ALL</option>
+                                    <option 
+                                        ng-repeat="loc in ListOfOfficeLocations"                                                   
+                                        value='{{loc.ID}}'
+                                        >{{loc.Name}}</option>   
+                                </select>
+                            </div>  
+                            <div class="col-2 pullRight" >Job Title</div>  
+                            <div class="col-6">
+                                <select ng-model='JobID' name='office'>
+                                    <option value=''>ALL</option>
+                                    <option 
+                                        ng-repeat="jobs in ListOfJobTitles"
+                                        value='{{jobs.ID}}'              
+                                        >{{jobs.Name}}</option>
+                                </select>
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-2 pullRight" >Active</div>  
+                            <div class="col-6">
+                                <input type="checkbox" ng-model='isActive' name='isActive' value='true' 
+                                       ng-checked='isActive === true' style='color: #ff9;background: green; width: 100%;border: 1px solid green;height: 20px;'/>
+                            </div>  
+                            <div class="col-2 pullRight" >Archived</div>  
+                            <div class="col-6">
+                                <input type="checkbox" ng-model='isArchived' name='isArchived' value='true' style='color: #ff9;background: green; width: 100%;border: 1px solid green;height: 20px;'
+                                       ng-checked='isArchived === true'
+                                          />
+                            </div>  
+                        </div>  
+                        <div class="row">
+                            <input type='submit' class='btn CommandButton' value='Search' />
+                        </div>
+                        </form>
+                    </div>
+                </div>                    
+            </div>
+                
+            <div class='row' ng-show='ShowGrid'>
+                <div employee-summary  
+         model='ActiveResult'> </div>
+            </div>
+                
+            
+        </div>

@@ -55,6 +55,42 @@ app.factory('EmployeeService', function ($http) {
 //        alert($http.defaults.headers.post["Content-Type"]);
 //        $http.post(FullURI(ACTION_URL), data).success(successfulPostCB).error(failedPostCB);
     };
+    
+    factory.SearchEmployee = function (data, successfulPostCB, failedPostCB) {
+        var ACTION_URL = '/Employee/SearchEmployees';
+
+        $.ajax({
+            type: "POST",
+            url: FullURI(ACTION_URL),
+            data: data,
+            contentType: "text/json",
+            accept: "application/json; charset=utf-8",
+            success: successfulPostCB,
+            error: failedPostCB,
+            dataType: "json"
+        });
+
+        function post(uri, data, successfulCB, failedCB) {
+            var result = $.ajax({
+                type: "POST",
+                url: uri,
+                data: data,
+                contentType: "text/json",
+                accept: "application/json; charset=utf-8",
+                success: successfulCB,
+                error: failedCB,
+                dataType: "json"
+            });
+            return result;
+        }
+        ;
+
+
+//alert("Starting angular Call");
+//        $http.defaults.headers.post["Content-Type"] = "application/json";
+//        alert($http.defaults.headers.post["Content-Type"]);
+//        $http.post(FullURI(ACTION_URL), data).success(successfulPostCB).error(failedPostCB);
+    };
 
 //    factory.GetJobTitles = function (returnData) {
 //        $http.get(FullURI(GetWebServicePath('Name', 'JobTitles'))).success(returnData);
