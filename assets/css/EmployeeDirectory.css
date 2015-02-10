@@ -238,4 +238,10 @@ input::input-placeholder {
   font-family: 'Oswald Bold';
   src: url("../fonts/Oswald-Bold.ttf");
 }
+.panel-heading {
+  background: #234c65;
+}
+.btn {
+  background: #7ec5ea;
+}
 /*# sourceMappingURL=EmployeeDirectory.css.map */
