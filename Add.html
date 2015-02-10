@@ -164,7 +164,9 @@ and open the template in the editor.
                                         <span class="formLabel">Job Title</span>
                                     </div>
                                     <div class='col-10' style='text-align: center;'>
-                                        <span class="nonEditField formValueColumn">Davis</span>                                      
+                                        <span class="nonEditField formValueColumn">Davis</span>        
+                                            {{Emp.JobTitleID}}
+                                            <span class="tester"></span>
                                         <select  class='EditableField' ng-model='Emp.JobTitleID' name='jobID' style='width: 100%;' required>
                                             <option value="">Please select</option>
                                             <option 

@@ -19,8 +19,8 @@ function ToEmployeePerson(data) {
                 data[i].isActive,
                 data[i].isArchived,
                 data[i].EmployeeID,
-                data[i].JobTitle,
-                data[i].OfficeLocation,
+                data[i].JobTitleID,
+                data[i].OfficeLocationID,
                 data[i].PersonID,
                 data[i].CreatedOn,
                 data[i].CreatedBy,
@@ -33,5 +33,10 @@ function ToEmployeePerson(data) {
         
         result.push(temp);
     }
+    if (result.length === 1){
+        return result[0];
+    }
+    else{
     return result;
+}
 }

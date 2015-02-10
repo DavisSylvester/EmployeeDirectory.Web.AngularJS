@@ -15,9 +15,16 @@ app.factory('CategoryService', function ($http) {
         $http.get(FullURI('/Admin/Categories')).success(returnData);
     };
     factory.SaveCategory = function (data, successfulPostCB, failedPostCB) {
-        var ACTION_URL = '/Admin/SaveCategory';
+//        var ACTION_URL = '/Admin/SaveCategory';
+        var ACTION_URL = '/Category/SaveCategory';
         post(FullURI(ACTION_URL), data, successfulPostCB, failedPostCB);       
     };
+    factory.CategoryExists = function(data, successfulPostCB, failedPostCB){
+        var ACTION_URL = '/Category/Exists';
+        post(FullURI(ACTION_URL), data, successfulPostCB, failedPostCB);       
+    };
+    
+    
     function FullURI(actionUrl) {
         return BASE_URL + actionUrl;
     };

@@ -14,18 +14,45 @@ app.value("SubCategory", SubCategory);
 app.value("Category", Category);
 app.value("EmployeeListModel", EmployeeListModel);
 
+//app.config(['$routeProvider',
+//  function($routeProvider) {
+//    $routeProvider.
+//      when('/addOrder', {
+//        templateUrl: 'Add.html',
+//        controller: 'EmployeeController'
+//      }).
+//      when('/showOrders', {
+//        templateUrl: 'templates/show-orders.html',
+//        controller: 'ShowOrdersController'
+//      }).
+//      otherwise({
+//        redirectTo: '/addOrder'
+//      });
+//  }]);
 app.config(function ($routeProvider, $locationProvider, $httpProvider) {
     
     $routeProvider
             .when("/", {
-                templateUrl: "/",
+                templateUrl: "/Views/Employee/ListOfEmployees.html",
                 controller: "EmployeeController"
+            });
+   
+    $routeProvider.when("/Employee/Detail/:id", {
+//                templateUrl: "EmployeeDetail.html",
+                templateUrl: "/Views/Employee/Details.html",
+                controller: "EmployeeEditController"
             });
             
-    $routeProvider.when("/Employee/Detail/:id", {
-                templateUrl: "EmployeeDetail.html",
-                controller: "EmployeeController"
+    $routeProvider.when("/Employee/Edit/:id", {
+                templateUrl: "/Views/Employee/Edit.html",
+                controller: "EmployeeAddController"
             });
+            
+     $routeProvider.when("/Employee/Add/", {
+                templateUrl: "/Views/Employee/New.html",
+                controller: "EmployeeNewController"
+            });
+            
     $routeProvider.otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
     
@@ -36,3 +63,5 @@ app.config(function ($routeProvider, $locationProvider, $httpProvider) {
 //    $httpProvider.defaults.headers.common['Accept'] = 'application/json, text/javascript';
 //    $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
 });
+
+

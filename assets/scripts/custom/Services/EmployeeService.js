@@ -15,7 +15,7 @@ app.factory('EmployeeService', function ($http) {
         $http.get(FullURI('/Employee/GetEmployees')).success(returnData);
     };
 
-    factory.GetEmployee = function (returnData, id) {
+    factory.GetEmployee = function (id, returnData) {
         var ACTION_URL = '/Employee/GetEmployee/' + id;
         $http.get(FullURI(ACTION_URL)).success(returnData);
     };

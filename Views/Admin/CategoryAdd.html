@@ -35,35 +35,49 @@
     <body ng-app="EmployeeDirectory">        
         <div class="moduleWrapper" ng-controller="AdminController">
             <form ng-submit='SaveCategory()'>
-            <div class='col-6'>    
-                <div class="panel">
-                    <div class="panel-heading">
-                        <span>Category</span>
+                <div class='col-6'>    
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <span>Category</span>
+                        </div>
+
+                        <div class="panel-body-General">
+                            <div class='row'>
+                                <div class='col-4 formLabelsColumn'>
+                                    <span>Name</span>
+                                </div>
+
+                                <div class='col-13 formValueColumn'>
+                                    <input type='text' 
+                                           name='name' 
+                                           class='categoryNameInput'
+                                           ng-model='Cat.Name'
+                                           />
+                                </div>
+                            </div>
+                            <div class='row Hide' style='display: none;'>
+                                <div class='col-4 formLabelsColumn'>
+                                    <span>&nbsp;</span>
+                                </div>
+
+                                <div class='col-13 formValueColumn'>                                    
+                                    <span class='errorMessage'></span>
+                                    {{CheckResult}}                                
+                                </div>
+                            </div>
+
+                            <div class='row'>
+                                <div class='col-4 formLabelsColumn'>
+                                    <span>&nbsp;</span>
+                                </div>
+
+                                <div class='col-13 formValueColumn'>
+                                    <input type='submit' value='Save' class="SubmitButton" />
+                                </div>
+                            </div>                            
+                        </div>                    
                     </div>
-
-                    <div class="panel-body-General">
-                        <div class='row'>
-                            <div class='col-4 formLabelsColumn'>
-                                <span>Name</span>
-                            </div>
-
-                            <div class='col-13 formValueColumn'>
-                                <input type='text' name='name' ng-model='Cat.Name' class=''/>
-                            </div>
-                        </div>
-                                       
-                        <div class='row'>
-                            <div class='col-4 formLabelsColumn'>
-                                <span>{{AddResult}}</span>
-                            </div>
-
-                            <div class='col-13 formValueColumn'>
-                                <input type='submit' value='Save' />
-                            </div>
-                        </div>
-                    </div>                    
                 </div>
-            </div>
             </form>
         </div>
     </body>
