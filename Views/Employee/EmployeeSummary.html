@@ -1,14 +1,14 @@
-<div ng-repeat='item in model' style="width: 3vw;border: 1px solid red;margin: 1%; display: inline-block;">    
+<div ng-repeat='item in model' style="width: 8vw;border: 1px solid red;margin: 1%; display: inline-block;">    
     <a href="/Employee/Detail/{{item.PersonID}}" style="text-decoration: none;color:#fff;">
         <div class='photo' style='height: 9vh;'>            
             <img src="assets/images/{{item.PhotoSrc}}" alt="Photo of {{item.FullName}}" style='height: 100%;width: 100%;margin: 0;padding:0;'/>
         </div>
         <div class='personalData' style='vertical-align: top;height: 10vh;background: #234c65;color: #fff;'>
-            <div class='Name' style='height: 2vh;text-align: left;padding-left: 6%;font-family: "Encode-Med";'>
+            <div class='Name' style='height: 4vh;text-align: left;padding-left: 6%;font-family: "Encode-Med";'>
                 <span style='font-size: 80%;'>{{item.FullName}}</span>
             </div>
             
-            <div class='Name' style='height: 1.5vh;text-align: left;padding-left: 6%;font-family: "Encode-Med";'>
+            <div class='Name' style='height: 1.5vh;text-align: left;margin-top: 1%;padding-left: 6%;font-family: "Encode-Med";'>
                 <span style='font-size: 50%;'>{{item.JobTitleName}}</span>                
             </div>
             
